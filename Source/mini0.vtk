@@ -1,0 +1,58 @@
+# vtk DataFile Version 3.0
+SiWiRVisFile
+ASCII
+DATASET UNSTRUCTURED_GRID
+POINTS 12 DOUBLE
+99.9 100.6 100
+100.1 100.6 100
+99.9 100.4 100
+100.1 100.4 100
+99.7 100 100
+99.9 100 100
+100.1 100 100
+100.3 100 100
+99.7 99.8 100
+99.9 99.8 100
+100.1 99.8 100
+100.3 99.8 100
+POINT_DATA 12
+SCALARS mass double
+LOOKUP_TABLE default
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+VECTORS force double
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+VECTORS velocity double
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
