@@ -37,13 +37,13 @@ class Simulator{
 		    parameterS.GetParameter("vis_space",s);
 			vis_space = stod(s);
 
-			forn(i,3){
+			/*forn(i,3){
 				cerr<<"max"<<i<<":"<<MaxDim[i]<<"\n";
 				cerr<<"min"<<i<<":"<<MinDim[i]<<"\n";
 			}
 			cerr<<"eps:"<<epsilon<<" sig:"<<sigma<<"\n";
 			cerr<<"tB:"<<time_start<<" tE:"<<time_end<<" d:"<<delta<<"\n";
-			cerr<<"rCut:"<<rCut<<"\n";
+			cerr<<"rCut:"<<rCut<<"\n";*/
 
 		}
 
@@ -76,26 +76,26 @@ class Simulator{
 			initiate();
 			//return;
 			double t = time_start;
-			int iteration = 0, nr = 0;
+			int iteration = 1, nr = 1;
+			writeFile("",0);
 			while(t<=time_end){
 
-				if(iteration%vis_space==0){
-					writeFile("output/",nr);
-					++nr;
-					cerr<<"iteration:"<<iteration<<"\n";
-				}/*else
-				if(iteration%10==0){
-					cerr<<"iteration:"<<iteration<<"\n";
-				}*/
+				
 				
 				updatePosition();
 				//return;
 				updateForces();
 				updateVelocities();
 
-				
 
-				
+				if(iteration%vis_space==0){
+					writeFile("",nr);
+					++nr;
+					cerr<<"iteration:"<<iteration<<"\n";
+				}/*else
+				if(iteration%10==0){
+					cerr<<"iteration:"<<iteration<<"\n";
+				}*/				
 
 				t+=delta;				
 				++iteration;
@@ -132,7 +132,7 @@ class Simulator{
 				CellDim[i] = max(1,(int)((MaxDim[i] - MinDim[i]) / rCut));
 				CellDimCount[2-i] = cells;
 				cells *= CellDim[i];
-				cerr<<"dim "<<i<<":"<<CellDimCount[2-i]<<" "<<CellDim[i]<<"\n";
+				//cerr<<"dim "<<i<<":"<<CellDimCount[2-i]<<" "<<CellDim[i]<<"\n";
 			}
 			domain.assign(cells, Cell());
 			forn(i,velocity.size()){
