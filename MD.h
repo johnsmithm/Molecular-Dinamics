@@ -144,11 +144,11 @@ class Simulator{
 		bool leaveDomain(int id, vector<double> CellMax, vector<double> CellMin){
 				bool ok = false;
 				forn(i,3){
-					if(position[id][i] < 0){position[id][i] += MaxDim[i]-MinDim[i]; ok = true;}
+					if(position[id][i] < MinDim[i]){position[id][i] += MaxDim[i]-MinDim[i]; ok = true;}
 					if(position[id][i] > MaxDim[i]){position[id][i] -= MaxDim[i]-MinDim[i]; ok = true;}
 
 					if(position[id][i] < CellMin[i]){ok = true;}
-					if(position[id][i] > CellMax[i]){ok = true;}
+					if(position[id][i] >= CellMax[i]){ok = true;}
 				}
 				return ok;
 		}
