@@ -77,7 +77,8 @@ class Simulator{
 			//return;
 			double t = time_start;
 			int iteration = 1, nr = 1;
-			writeFile("",0);
+			writeFile("output/",0);
+			updateForces();
 			while(t<=time_end){
 
 				
@@ -89,7 +90,7 @@ class Simulator{
 
 
 				if(iteration%vis_space==0){
-					writeFile("",nr);
+					writeFile("output/",nr);
 					++nr;
 					cerr<<"iteration:"<<iteration<<"\n";
 				}/*else
@@ -228,7 +229,7 @@ class Simulator{
 						cerr<<" id:"<<i1<<"\n";*/
 					forn(i,3)
 						position[i1][i] += delta*velocity[i1][i] +
-						((force[i1][i] * delta*delta) / (2*mass[i1]));
+						((force[i1][i] * delta*delta) / (2.*mass[i1]));
 
 					/*forn(i,3)
 						cerr<<position[i1][i]<<" ";
